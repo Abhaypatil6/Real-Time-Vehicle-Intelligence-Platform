@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  api:
+    build: .
+    container_name: realtime-ml-api
+    ports:
+      - "8000:8000"
+    environment:
+      - RATE_LIMIT_PER_MINUTE=120
+    volumes:
+      - ./logs:/project/logs
+    restart: unless-stopped
